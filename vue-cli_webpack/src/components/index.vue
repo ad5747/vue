@@ -9,5 +9,8 @@
         <div>
              <router-link to="axios">Go To axios</router-link>
         </div>
+        <div>
+             <router-link to="stock">Go To stock</router-link>
+        </div>
     </div>
 </template>

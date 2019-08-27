@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Index from '@/components/index'
 import Bootstrap from '@/components/bootstrap'
 import axios from '@/components/axios'
+import stock from '@/components/stock'
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +27,11 @@ export default new Router({
     {
       path: '/axios',
       component: axios
+
+    },
+    {
+      path: '/stock',
+      component: stock
 
     }
   ]

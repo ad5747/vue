@@ -39,3 +39,19 @@ export const rterApiNowGet = (base = '', symbols = '') => {
   return rterApi.get(url)
 }
 export const rterApiHistoryGet = (date) => rterApi.get(`/api/${date}?access_key=203fe57d25b717d966831737b1fa5902`, defalultConfig)
+
+// 台灣股市觀測站
+// 一秒鐘內發起三次連線會被ban
+const stockApi = basicUrl.create({
+  baseURL: '/stockApi'
+})
+stockApi.defaults = defalultConfig
+export const stockApiGetStockInfo = (stockCodeList) => {
+  if (Array.isArray(stockCodeList)) {
+    let queryString = stockCodeList.reduce((a, b) => { return a.concat(`|${b}`) })
+    let url = `/api/getStockInfo.jsp?ex_ch=${queryString}`
+    return stockApi.get(url)
+  } else {
+    return '參數輸入錯誤'
+  }
+}

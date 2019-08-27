@@ -18,6 +18,14 @@ module.exports = {
         pathRewrite: {
           '^/fixerApi': '' // /api 所代表的位子
         }
+      },
+      '/stockApi': {
+        target: 'https://mis.twse.com.tw/stock/',
+        secure: true, // 是否為SSL加密連線
+        changeOrigin: true, // 是否為虛擬主機
+        pathRewrite: {
+          '^/stockApi': '' // /api 所代表的位子
+        }
       }
     },
 
@@ -42,7 +50,7 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
